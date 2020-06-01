@@ -4,8 +4,10 @@ one:
   title: MyString
   text: MyText
   image: MyString
+  authorid: 1
 
 two:
   title: MyString
   text: MyText
   image: MyString
+  authorid: 1
