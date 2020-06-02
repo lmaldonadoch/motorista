@@ -15,14 +15,25 @@
   </p>
   
   <p>
-    <%# if @article.image.exists? %>
-        <%#= image_tag @article.image.url %><br/>
-    <%# end %>
-    <%#= f.label :image, "Attach a New Image" %><br />
-    <%#= f.file_field :image %>
+    <%= f.label :image, "Select the posts image" %><br />
+    <%= f.file_field :image %>
+  </p>
+
+  <%= f.label :categories %><br />
+  <p>
+    <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> Cars
+  </p>
+  <p>
+    <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> Bikes
+  </p>
+  <p>
+    <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> Off Road
+  </p>
+  <p>
+    <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %> Racing
   </p>
 
   <p>
     <%= f.submit %>
-  </p>
+  </>
 <% end %>

@@ -1,6 +1,19 @@
 @import "bootstrap/scss/bootstrap";
 
+$orange: rgb(247, 98, 8);
+$brown: rgb(77, 66, 60);
+$white: rgb(255, 255, 255);
+$yellow: rgb(222, 219, 10);
+
+body {
+  color: $white;
+}
+
 nav {
+  .navbar-nav {
+    margin: auto;
+  }
+
   li {
     white-space: nowrap;
   }
@@ -13,4 +26,41 @@ nav {
   a:hover {
     text-decoration: none;
   }
+}
+
+.nav-item {
+  white-space: nowrap;
+}
+
+.featured_article_wrapper,
+.article_wrapper {
+  background: rgba(77, 66, 60, 0.3);
+}
+
+.featured_article {
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+
+  .article_title {
+    color: $orange;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+
+  .article_text {
+    line-height: 1rem;
+    font-weight: 700;
+  }
+}
+
+.empty_category {
+  background: url(logo.png) no-repeat center center;
+  background-size: cover;
+}
+
+.yellow_line {
+  width: 100px;
+  border: $yellow 1px solid;
+  margin-left: 0;
 }

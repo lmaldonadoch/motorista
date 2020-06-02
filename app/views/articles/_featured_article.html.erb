@@ -1,0 +1,15 @@
+
+<% if @featured_article %>
+  <%= link_to article_path(@featured_article) do %>
+    <div class="col featured_article d-flex flex-column justify-content-end" style = "background-image: url(<%= rails_blob_url(@featured_article.image) %>)">
+      <h1 class="article_title">
+        <%= @featured_article.title%>
+      </h1>
+      <p class="article_text">
+        <%= truncate(@featured_article.text, length: 150)%>
+      </p>
+    </div>
+  <% end %>
+<% else %>
+  <% create_categories %>
+<% end %>

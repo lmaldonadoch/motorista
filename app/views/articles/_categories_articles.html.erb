@@ -1,0 +1,18 @@
+<% (@articles_by_category.length / 2).times do |i|%>
+  <% if @articles_by_category[1].nil? or @articles_by_category[1].empty? %>
+    <%= articles_index_empty(@articles_by_category.shift) %>
+    <% @articles_by_category.shift %>
+  <% else %>
+    <div class="col-6 featured_article d-flex flex-column justify-content-around align-items-start" style = "background-image: url(<%= rails_blob_url(@articles_by_category[1][0].image) %>)">
+      <div class="article_title_box">
+        <p class="article_text">
+        <%= @articles_by_category.shift%>
+        </p>
+        <hr class = 'yellow_line'>
+      </div>
+      <p class="article_text">
+        <%= @articles_by_category.shift[0].title%>
+      </p>
+    </div>
+  <% end %>
+<% end %>

@@ -12,7 +12,11 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @article.image %>
+  <%= image_tag(@article.image) %>
+</p>
+
+<p>
+  <% @article.article_categories%>
 </p>
 
 <p>
