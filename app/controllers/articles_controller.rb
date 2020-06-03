@@ -6,33 +6,32 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all.includes(:votes, :categories).order(:created_at)
     @featured_article = @articles[0]
-    cars_articles = []
-    bikes_articles = []
-    off_road_articles = []
-    race_articles = []
+    @cars_articles = []
+    @bikes_articles = []
+    @off_road_articles = []
+    @race_articles = []
     @articles.each do |article|
       @featured_article = article if article.number_of_votes > @featured_article.number_of_votes
-      cars_articles << article if article.categories.any? {|category| category.name == 'Cars'}
-      bikes_articles << article if article.categories.any? {|category| category.name == 'Bikes'}
-      off_road_articles << article if article.categories.any? {|category| category.name == 'Off Road'}
-      race_articles << article if article.categories.any? {|category| category.name == 'Racing'}
+      @bikes_articles << article if article.categories.any? {|category| category.name == 'Bikes'}
+      @off_road_articles << article if article.categories.any? {|category| category.name == 'Off Road'}
+      @race_articles << article if article.categories.any? {|category| category.name == 'Racing'}
+      @cars_articles << article if article.categories.any? {|category| category.name == 'Cars'}
     end
     category_priority = Category.all.order(:priority).select(:name).distinct
     @articles_by_category = []
     category_priority.each do |n|
-      p n.name
       if n.name == 'Cars'
         @articles_by_category << 'Cars'
-        @articles_by_category << cars_articles
+        @articles_by_category << @cars_articles
       elsif n.name == 'Bikes'
         @articles_by_category << 'Motorcycles'
-        @articles_by_category << bikes_articles
+        @articles_by_category << @bikes_articles
       elsif n.name == 'Off Road'
         @articles_by_category << 'Off Road'
-        @articles_by_category << off_road_articles
+        @articles_by_category << @off_road_articles
       else
         @articles_by_category << 'Racing'
-        @articles_by_category << race_articles
+        @articles_by_category << @race_articles
       end
     end
   end
@@ -95,6 +94,18 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def articles_by_category
+    p ''
+    p ''
+    p ''
+    p ''
+    p 'In controller'
+    p ''
+    p params[:category]
+    render 'articles_by_category', category: params[:category]
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

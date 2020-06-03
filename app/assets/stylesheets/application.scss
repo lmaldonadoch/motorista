@@ -12,10 +12,20 @@ body {
 nav {
   .navbar-nav {
     margin: auto;
+    background: $brown;
   }
 
   li {
     white-space: nowrap;
+    margin-left: 20px;
+
+    a {
+      color: $white !important;
+    }
+
+    a:hover {
+      color: $orange !important;
+    }
   }
 
   img {
@@ -26,10 +36,16 @@ nav {
   a:hover {
     text-decoration: none;
   }
+
+  .nav_div_links {
+    height: 60px;
+    margin: 10px 0;
+  }
 }
 
 .nav-item {
   white-space: nowrap;
+  color: $white;
 }
 
 .index_container {
@@ -80,6 +96,7 @@ nav {
 
   a {
     color: $orange;
+    text-decoration: none;
   }
 
   img {

@@ -6,11 +6,24 @@
     <div class="col-6 featured_article d-flex flex-column justify-content-around align-items-start" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(<%= rails_blob_url(@articles_by_category[1][0].image) %>)">
       <div class="article_title_box">
         <p class="article_text">
-        <%= @articles_by_category.shift%>
+        <% if @articles_by_category[0] == 'Cars'%>
+          <%=link_to @articles_by_category[0], cars_path%>
+          <% @articles_by_category.shift %>
+        <% elsif @articles_by_category[0] == 'Motorcycles'%>
+          <%=link_to @articles_by_category[0], bikes_path%>
+          <% @articles_by_category.shift %>
+        <% elsif @articles_by_category[0] == 'Off Road'%>
+          <%=link_to @articles_by_category[0], offroad_path%>
+          <% @articles_by_category.shift %>
+        <% elsif @articles_by_category[0] == 'Racing'%>
+          <%=link_to @articles_by_category[0], racing_path%>
+          <% @articles_by_category.shift %>
+        <% end %>
         </p>
         <hr class = 'yellow_line'>
       </div>
       <p class="article_text">
+        <% p @articles_by_category%>
         <%= @articles_by_category.shift[0].title%>
       </p>
     </div>
