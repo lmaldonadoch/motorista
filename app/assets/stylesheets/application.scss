@@ -45,8 +45,9 @@ nav {
 }
 
 .featured_article {
-  height: 250px;
-  background-position: top center;
+  height: 35vh;
+  min-height: 250px;
+  background-position: center center !important;
   background-size: cover !important;
 
   .article_title {
@@ -70,4 +71,32 @@ nav {
   width: 100px;
   border: $yellow 1px solid;
   margin-left: 0;
+}
+
+.footer {
+  padding: auto 20px;
+  font-size: 0.8rem;
+  background: $brown;
+
+  a {
+    color: $orange;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social_link_container {
+    background: $orange;
+    padding: 6px;
+    border-radius: 50%;
+    height: fit-content;
+    margin: auto 5px;
+
+    a {
+      color: $brown;
+      font-size: 1.5rem;
+    }
+  }
 }

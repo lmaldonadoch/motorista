@@ -5,7 +5,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light my-0 py-0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light my-0 py-0">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,10 +41,6 @@
       </div>
     </nav>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
   <% if notice.present? %>
       <div class="notice">
         <p> <%= notice %> </p>
@@ -54,4 +55,28 @@
   <body>
     <%= yield %>
   </body>
+
+  <footer class="footer d-flex justify-content-between align-items-center w-100">
+    <%= image_tag "logo.png" %>
+
+    <div class="footer_links d-flex flex-column justify-content-center align-items-center">
+      <a href="#" class="policies">Privacy Policy</a>
+      <a href="#" class="policies">Terms and Conditions</a>
+      Copyright 2020. All rights reserved.
+    </div>
+
+    <div class="footer_social_links d-flex justify-content-end align-items-center">
+      Connect with us:
+      <div class="social_link_container d-flex justify-content-center align-items-center">
+        <%= link_to "", 'https://www.linkedin.com/in/lmaldonadoch/', class:"social_media_link fa fa-linkedin" %>
+      </div>
+      <div class="social_link_container d-flex justify-content-center align-items-center">
+        <%= link_to "", 'https://github.com/lmaldonadoch', class:"social_media_link fa fa-github" %>
+      </div>
+      <div class="social_link_container d-flex justify-content-center align-items-center">
+        <%= link_to "", 'https://twitter.com/LuisAngelMCh', class:"social_media_link fa fa-twitter" %>
+      </div>
+    </div>
+
+  </footer>
 </html>
