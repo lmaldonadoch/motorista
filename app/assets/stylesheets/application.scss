@@ -32,6 +32,13 @@ nav {
   white-space: nowrap;
 }
 
+.index_container {
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
 .featured_article_wrapper,
 .article_wrapper {
   background: rgba(77, 66, 60, 0.3);
@@ -39,8 +46,8 @@ nav {
 
 .featured_article {
   height: 250px;
-  background-size: cover;
-  background-position: center center;
+  background-position: top center;
+  background-size: cover !important;
 
   .article_title {
     color: $orange;
