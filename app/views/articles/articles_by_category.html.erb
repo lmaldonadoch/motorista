@@ -1,3 +1,29 @@
 <% articles = articles_to_display(params[:category])%>
 
-<% articles.each do |article|%>
+<div class="container-fluid px-0">
+  <div class="row">
+    <% articles.each do |article|%>
+      <div class="article_container d-flex">
+        <div class="col category_article_image d-flex flex-column justify-content-end" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(<%= rails_blob_url(article.image) %>);"></div>
+        <div class="article_content d-flex flex-column align-items-start justify-content-around">
+          <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+
+          <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+          <%= content_tag(:p, truncate(article.text, length: 250), class: 'category_article_text')%>
+        </div>
+      </div>
+    <% end %>
+
+    <% (3 - articles.length).times do |n|%>
+      <div class="article_container d-flex">
+        <div class="col category_article_image d-flex flex-column justify-content-end" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(logo.png);"></div>
+        <div class="article_content d-flex flex-column align-items-start justify-content-around">
+          <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+
+          <%= link_to 'Create some more content!', article_new, class: 'category_article_title'%>
+          <p class="category_article_text"> There is not enough articles yet, go ahead and create some more amazing content of your own!</p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

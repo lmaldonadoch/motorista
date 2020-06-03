@@ -13,6 +13,7 @@ module ArticlesHelper
 
   def articles_to_display(category)
     if category == 'cars'
+      p @cars_articles
       return @cars_articles
     elsif category == 'bikes'
       return @bikes_articles

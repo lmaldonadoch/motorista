@@ -117,3 +117,34 @@ nav {
     }
   }
 }
+
+.category_article_image {
+  min-width: 50%;
+  height: 50vh;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.article_content {
+  color: black;
+  padding: 20px;
+
+  .category_category {
+    color: $orange;
+    line-height: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: $orange 2px solid;
+    padding-bottom: 3px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  a:hover {
+    color: $orange;
+  }
+}
