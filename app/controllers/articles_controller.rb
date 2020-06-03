@@ -74,6 +74,17 @@ class ArticlesController < ApplicationController
     render 'articles_by_category', category: params[:category]
   end
 
+  def vote
+    @article = Article.find(params[:article_id])
+    p @article.votes.map { |n| return true if n.userid == session[:current_user_id] }
+    if !@article.votes.empty? && @article.votes.any? { |n| n.userid == session[:current_user_id] }
+      redirect_to article_path(@article), alert: 'You have already voted for this article'
+    else
+      Vote.create(articleid: @article.id, userid: session[:current_user_id])
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

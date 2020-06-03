@@ -23,4 +23,19 @@ module ArticlesHelper
       return @race_articles
     end
   end
+
+  def votes_button(article)
+    votes = article.votes
+
+    return content_tag(:p, "This article cas been voted #{votes.length} times", class: 'votes_count') unless  session[:current_user_id]
+
+    return content_tag(:div, content_tag(:p, "Votes: #{votes.length}") + link_to('', vote_path(article_id: article.id), class: 'fa fa-thumbs-up vote_button'), class: 'd-flex justify-content-around w-100 votes_count') if votes.empty?
+
+    votes.each do |vote|
+      return content_tag(:p, "Thank you for voting fo this article! This article cas been voted #{votes.length} times!", class: 'votes_count') if vote.userid == session[:current_user_id]
+    end
+
+    return content_tag(:div, content_tag(:p, "Votes: #{votes.length}") + link_to('', vote_path(article_id: article.id), class: 'fa fa-thumbs-up vote_button'), class: 'd-flex justify-content-around w-100 votes_count')
+  end
+
 end

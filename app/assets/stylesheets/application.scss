@@ -161,4 +161,18 @@ nav {
   a:hover {
     color: $orange;
   }
+
+  .votes_count {
+    color: $orange;
+
+    a {
+      color: $orange;
+      font-size: 1.2rem;
+      transition: font-size 0.5s;
+    }
+
+    a:hover {
+      font-size: 1.5rem;
+    }
+  }
 }

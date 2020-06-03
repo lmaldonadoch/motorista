@@ -9,9 +9,11 @@
           <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
 
           <%= link_to article.title, article_path(article), class: 'category_article_title'%>
-          <%= content_tag(:p, truncate(article.text, length: 250), class: 'category_article_text')%>
+          <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+          <%= votes_button(article) %>
         </div>
       </div>
+
     <% end %>
 
     <% (3 - articles.length).times do |n|%>

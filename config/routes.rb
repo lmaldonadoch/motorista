@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get '/bikes', to: 'articles#articles_by_category', category: 'bikes'
   get '/offroad', to: 'articles#articles_by_category', category: 'offroad'
   get '/racing', to: 'articles#articles_by_category', category: 'racing'
+
+  get '/vote', to: 'articles#vote'
 end
