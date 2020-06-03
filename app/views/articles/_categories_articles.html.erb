@@ -23,8 +23,8 @@
         <hr class = 'yellow_line'>
       </div>
       <p class="article_text">
-        <% p @articles_by_category%>
-        <%= @articles_by_category.shift[0].title%>
+        <%= link_to @articles_by_category[0][0].title, article_path(@articles_by_category[0])%>
+        <% @articles_by_category.shift%>
       </p>
     </div>
   <% end %>

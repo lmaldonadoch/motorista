@@ -9,16 +9,16 @@
             <%= link_to 'HOME', articles_url, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">CARS</a>
+            <%=link_to 'CARS', cars_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">MOTORCYCLES</a>
+            <%=link_to 'MOTORCYCLES', bikes_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">OFF ROAD</a>
+            <%=link_to 'OFF ROAD', offroad_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">RACING</a>
+            <%=link_to 'RACING', racing_path, class: 'nav-link' %>
           </li>
           <li class="nav-item d-flex d-md-none align-items-center flex-nowrap">
             <%= user_buttons_nav_small(session[:current_user_id])%>

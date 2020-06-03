@@ -9,6 +9,10 @@ body {
   color: $white;
 }
 
+.container-fluid {
+  overflow-x: hidden !important;
+}
+
 nav {
   .navbar-nav {
     margin: auto;
@@ -125,7 +129,17 @@ nav {
   background-position: center center !important;
 }
 
+.empty_category_article_image {
+  background: linear-gradient(rgba(77, 66, 60, 0.4), rgba(77, 66, 60, 0.4)),
+    url("logo.png");
+  min-width: 50%;
+  height: 50vh;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
 .article_content {
+  box-sizing: border-box !important;
   color: black;
   padding: 20px;
 
