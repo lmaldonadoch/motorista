@@ -15,25 +15,41 @@
   </p>
   
   <p>
-    <%= f.label :image, "Select the posts image" %><br />
+    <%= f.label :image, "Select your posts image" %><br />
     <%= f.file_field :image %>
   </p>
 
   <%= f.label :categories %><br />
   <p>
-    <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> Cars
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> <p>
+        Cars
+      </p>
+    </div>
   </p>
   <p>
-    <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> Bikes
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> <p>
+        Bikes
+      </p>
+    </div>
   </p>
   <p>
-    <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> Off Road
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> <p>
+        Off Road
+      </p>
+    </div>
   </p>
   <p>
-    <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %> Racing
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %> <p>
+        Racing
+      </p>
+    </div>
   </p>
 
-  <p>
-    <%= f.submit %>
-  </>
+    <div class="button_wrapper d-flex justify-content-center w-100">
+      <%= f.submit class: 'form_submit'%>
+    </div>
 <% end %>

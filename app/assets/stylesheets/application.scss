@@ -7,6 +7,10 @@ $yellow: rgb(222, 219, 10);
 
 body {
   color: $white;
+  background: rgba(77, 66, 60, 0.7);
+  position: relative;
+  padding-bottom: 60px;
+  min-height: 100vh;
 }
 
 .container-fluid {
@@ -97,6 +101,9 @@ nav {
   padding: auto 20px;
   font-size: 0.8rem;
   background: $brown;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
 
   a {
     color: $orange;
@@ -152,6 +159,10 @@ nav {
     padding-bottom: 3px;
   }
 
+  .article_author {
+    color: $orange;
+  }
+
   a {
     color: black;
     text-decoration: none;
@@ -173,6 +184,66 @@ nav {
 
     a:hover {
       font-size: 1.5rem;
+    }
+  }
+}
+
+.new_article_title {
+  text-align: center;
+  color: $orange;
+  font-weight: 700;
+}
+
+form {
+  color: black;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+
+  label {
+    text-align: center;
+    margin: auto;
+    font-size: 2rem;
+    width: 100%;
+    color: $orange;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: $brown 1px solid;
+    border-radius: 25px;
+    background: $brown;
+    color: $white;
+  }
+
+  textarea {
+    height: 50vh;
+    min-height: 200px;
+  }
+
+  #article_image,
+  .form_submit {
+    background: $orange;
+    color: $brown;
+  }
+
+  .form_submit {
+    width: 200px;
+    margin: 30px auto;
+    height: 2rem;
+  }
+
+  .checkbox_wrapper {
+    margin-left: 0;
+
+    input {
+      width: fit-content;
+      margin-right: 20px;
+    }
+
+    p {
+      white-space: nowrap;
     }
   }
 }

@@ -1,11 +1,13 @@
-<h1>Sign in</h1>
+<h1 class = new_article_title>Sign in</h1>
 
 <%= form_for(:user, url: sign_in_path) do |f| %>
- 
- <%= f.label :name, 'Your Username here' %> <br>
- <%= f.text_field :name %> <br>
 
-<%= f.submit 'Sign in' %> <br>
- <%= link_to "Home", root_path%><br>
- 
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name %>
+
+  <div class="actions button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit 'Sign in', class: 'form_submit' %>
+  </div>
+  
+
 <%end%>

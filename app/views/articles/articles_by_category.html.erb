@@ -10,6 +10,9 @@
 
           <%= link_to article.title, article_path(article), class: 'category_article_title'%>
           <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+          <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
           <%= votes_button(article) %>
         </div>
       </div>

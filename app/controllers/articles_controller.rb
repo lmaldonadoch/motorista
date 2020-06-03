@@ -98,7 +98,7 @@ class ArticlesController < ApplicationController
     end
 
     def get_articles
-      @articles = Article.all.includes(:votes, :categories).order(:created_at)
+      @articles = Article.all.includes(:votes, :categories).order(created_at: :desc)
       @featured_article = @articles[0]
       @cars_articles = []
       @bikes_articles = []
