@@ -1,6 +1,6 @@
 <% articles = articles_to_display(params[:category])%>
 
   <%= render 'articles_to_show', :locals => {articles: articles}%>
-    <%= render 'empty_articles', :locals => {articles: articles}%>
+  <%= render 'empty_articles', :locals => {articles: articles}%>
   </div>
 </div>
