@@ -121,7 +121,7 @@ class ArticlesController < ApplicationController
         @race_articles << article if article.categories.any? {|category| category.name == 'Racing'}
         @cars_articles << article if article.categories.any? {|category| category.name == 'Cars'}
       end
-      category_priority = Category.all.order(:priority).select(:name).distinct
+      category_priority = Category.all.distinct.order(:priority)
       @articles_by_category = []
       category_priority.each do |n|
         if n.name == 'Cars'
