@@ -8,10 +8,12 @@
         <div class="article_container d-flex col-12 col-md-6">
           <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
           <div class="article_content d-flex flex-column align-items-start justify-content-around">
-
+            <% unless params[:category].nil? %>
+              <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+            <% end %>
             <%= link_to article.title, article_path(article), class: 'category_article_title'%>
             <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
-
+            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
             <%= votes_button(article) %>
           </div>
         </div>
@@ -19,7 +21,9 @@
       <% elsif change_flag == 2 %>
         <div class="article_container d-flex col-12 col-md-6">
           <div class="article_content d-flex flex-column align-items-start justify-content-around">
-
+            <% unless params[:category].nil? %>
+              <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+            <% end %>
             <%= link_to article.title, article_path(article), class: 'category_article_title'%>
             <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
 
@@ -38,7 +42,7 @@
             <% end %>
             <%= link_to article.title, article_path(article), class: 'category_article_title'%>
             <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
-
+            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
             <%= votes_button(article) %>
           </div>
           <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>

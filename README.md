@@ -5,24 +5,30 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-> Motorista is an online magazine for the petrolheads, designed to host articles from all around the automotive and motorcycle world. The categories currently implemented are Cars, Motorcycles, Off-Road, and Racing. The features of this website are user creation/log-in, user profile with the most voted article featured at the top, and a list of the latest articles written by the author. For the articles section, we have the creation of new articles, a show page for each one of them featuring the article picture, title, and content. The home page is a webpage that displays the featured article at the top (Most voted) and a list of categories featuring the most recent article added to that section as cover. Signed-in users can upvote their favorite article to see it featured on the home page. The website is fully responsive, with an interactive sliding menu bar. The last feature I will mention here is the search option. You can search for a word or phrase and the related articles will be displayed. For a full experience on the web app, please make sure to visit it's [Live Version right here!]()
-
-![screenshot1](app/assets/images/screenshot02.png)
+> Motorista is an online magazine for the petrolheads, designed to host articles from all around the automotive and motorcycle world. The categories currently implemented are Cars, Motorcycles, Off-Road, and Racing. The features of this website are user creation/log-in, user profile with the most voted article featured at the top, and a list of the latest articles written by the author. For the articles section, we have the creation of new articles, a show page for each one of them featuring the article picture, title, and content. The home page is a webpage that displays the featured article at the top (Most voted) and a list of categories featuring the most recent article added to that section as cover. Signed-in users can upvote their favorite article to see it featured on the home page. The website is fully responsive, with an interactive sliding menu bar. The last feature I will mention here is the search option. You can search for a word or phrase and the related articles will be displayed. For a full experience on the web app, please make sure to visit its [Live Version right here!](https://afternoon-dawn-70531.herokuapp.com/articles)
 
 ![screenshot1](app/assets/images/screenshot01.png)
+
+![screenshot1](app/assets/images/screenshot02.png)
 
 ![screenshot1](app/assets/images/screenshot03.png)
 
 ![screenshot1](app/assets/images/screenshot04.png)
 
+> This project was a very comprehensive project that included all of the knowledge acquired during the last courses including HTML, CSS, Ruby, and Ruby on Rails. For this project, I also used Bootstrap and SASS for responsive development. It demanded a lot of skill and analysis to be able to implement the design and the project specifications into a fully functioning app.
+
 ## Live Version
 
-[Live Version](https://murmuring-thicket-07012.herokuapp.com/users/sign_in)
+[Live Version](https://afternoon-dawn-70531.herokuapp.com/articles)
+
+## Video presentation
+
+[Project Video Presentation](https://www.loom.com/share/1d69732a5fda4577a919fd4e1fc0ac88)
 
 ## Built With
 
 - Ruby v2.6.5
-- Ruby on Rails v5.2.4
+- Ruby on Rails v6.0.3.1
 
 ## Getting Started
 
@@ -35,7 +41,7 @@ $ cd <directory>
 Clone the repo typing:
 
 ```
-$ git clone git@github.com:shubham14p3/ror-social-scaffold.git
+$ git clone git@github.com:lmaldonadoch/motorista.git
 ```
 
 Install the needed gems:
@@ -44,13 +50,7 @@ Install the needed gems:
 $ bundle install
 ```
 
-Next, initialize the pre-build database with seeds :
-
-```
-$ rake db:seed
-```
-
-and then
+Now, set up the database:
 
 ```
 $ rake db:setup
@@ -80,12 +80,16 @@ Postgres: >=9.5
 ### Run tests
 
 ```
-  rpsec spec/features/users/users_spec.rb
+  rspec spec/features/users_spec.rb
 
-  psec spec/features/users/friends_spec.rb
+  rspec spec/features/log_in_spec.rb
 
-  rpsec spec/features/users/login_spec.rb
+  rspec spec/features/articles_spec.rb
 ```
+
+This should be the results
+
+![screenshot1](app/assets/images/screenshot05.png)
 
 ## Authors
 
@@ -95,16 +99,11 @@ Postgres: >=9.5
 - Twitter: [@LuisAngelMCh](https://twitter.com/LuisAngelMCh)
 - Linkedin: [linkedin](https://www.linkedin.com/in/lmaldonadoch)
 
-👤 **Shubham Raj**
-
-- Github: [@ShubhamRaj](https://github.com/shubham14p3)
-- Linkedin: [Shubham14p3](https://www.linkedin.com/in/shubham14p3/)
-
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/shubham14p3//ror-social-scaffold/issues/).
+Feel free to check the [issues page](https://github.com/lmaldonadoch/motorista/issues).
 
 ## Show your support
 
@@ -113,6 +112,8 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Project requested by [Microverse Program](https://www.microverse.org/).
+- The project design and original idea are from [Nelson Sakwa](https://www.behance.net/sakwadesignstudio). Big cheers to him! You can find the complete project on [this Behance link](https://www.behance.net/gallery/14554909/liFEsTlye-Mobile-version).
+- All the articles were taken from [MotorTrend](https://www.motortrend.com/) and from [MotorCycleNews](https://www.motorcyclenews.com/). Big cheers to the amazing authors and photographers.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
