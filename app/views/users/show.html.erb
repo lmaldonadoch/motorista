@@ -8,73 +8,37 @@
   Author since: <%= @user.created_at %>
 </p>
 
-<%most_voted_article = most_voted_article(@user)%>
-<p class="user_most_voted_article">
-  This is your most voted article with <%=most_voted_article.number_of_votes%> votes!
-</p>
-
-<div class="show_article_image" style = "background: url(<%= most_voted_article.image %>) no-repeat center center; background-size: cover;"></div>
-
-<div class="user_article_title w-100 d-flex justify-content-center">
-  <%=link_to most_voted_article.title, article_path(most_voted_article), class: "show_article_title text-center"%>
-</div>
-
-<div class="show_article_text">
-  <p>
-    <%= truncate(most_voted_article.text, length: 300) %>
+<% if @user.articles.empty?%>
+  <p class="user_most_voted_article">
+    You have no articles yet, why don't we start? <%= link_to 'Create a new article now!', new_article_path, class: 'article_author' %>
   </p>
-</div>
 
-<p class="user_most_voted_article">
-  Here is a collection of the rest of your articles:
-</p>
+<% else %>
 
-<% articles = users_articles(most_voted_article, @user)%>
+  <%users_most_voted_article = most_voted_article(@user)%>
+  <p class="user_most_voted_article">
+    This is your most voted article with <%=users_most_voted_article.number_of_votes%> votes!
+  </p>
 
-<div class="container-fluid px-0">
-  <div class="row no-gutters">
-    <%change_flag = 0%>
-    <% articles.each do |article|%>
-      <% if change_flag < 2%>
-        <div class="article_container d-flex col- col-md-6">
-          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
-          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+  <div class="show_article_image" style = "background: url(<%= users_most_voted_article.image %>) no-repeat center center; background-size: cover;"></div>
 
-            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
-            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+  <div class="user_article_title w-100 d-flex justify-content-center">
+    <%=link_to users_most_voted_article.title, article_path(users_most_voted_article), class: "show_article_title text-center"%>
+  </div>
 
-            <%= votes_button(article) %>
-          </div>
-        </div>
-        <% change_flag += 1%>
-      <% elsif change_flag == 2 %>
-        <div class="article_container d-flex col col-md-6">
-          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+  <div class="show_article_text">
+    <p>
+      <%= truncate(users_most_voted_article.text, length: 300) %>
+    </p>
+  </div>
 
-            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
-            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+  <p class="user_most_voted_article">
+    Here is a collection of the rest of your articles:
+  </p>
 
-            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+  <% articles = users_articles(users_most_voted_article, @user)%>
 
-            <%= votes_button(article) %>
-          </div>
-          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
-        </div>
-        <% change_flag += 1%>
-      <% else%>
-        <div class="article_container d-flex col col-md-6">
-          <div class="article_content d-flex flex-column align-items-start justify-content-around">
-            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
-
-            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
-            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
-
-            <%= votes_button(article) %>
-          </div>
-          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
-        </div>
-        <% change_flag = 0%>
-      <% end %>
-    <% end %>
+  <%= render 'articles/articles_to_show', :locals => {articles: articles} %>
   </div>
 </div>
+<% end %>

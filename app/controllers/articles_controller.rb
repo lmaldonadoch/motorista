@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
-  before_action :get_articles, only: %i[index articles_by_category]
+  before_action :find_articles, only: %i[index articles_by_category]
   before_action :user_registered?, only: %i[new edit]
 
   # GET /articles
@@ -72,7 +72,6 @@ class ArticlesController < ApplicationController
 
   def vote
     @article = Article.find(params[:article_id])
-    p @article.votes.map { |n| return true if n.userid == session[:current_user_id] }
     if !@article.votes.empty? && @article.votes.any? { |n| n.userid == session[:current_user_id] }
       redirect_to article_path(@article), alert: 'You have already voted for this article'
     else
@@ -92,17 +91,19 @@ class ArticlesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_article
     @article = Article.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def article_params
     params.require(:article).permit(:title, :text, :image, :authorid, :categories, article_categories: [])
   end
 
-  def get_articles
+  # rubocop:disable Metrics/CyclomaticComplexity
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/MethodLength
+
+  def find_articles
     @articles = Article.all.includes(:votes, :categories).order(created_at: :desc)
     @featured_article = @articles[0]
     @cars_articles = []
@@ -135,9 +136,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # rubocop:enable Metrics/CyclomaticComplexity
+  # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/MethodLength
+
+  # rubocop:disable Layout/LineLength
+
   def user_registered?
-    unless session[:current_user_id]
-      redirect_to sign_in_path, alert: 'You need to be signed in to create an article. Please sign in here first'
-      end
+    redirect_to sign_in_path, alert: 'You need to be signed in to create an article. Please sign in here first' unless session[:current_user_id]
   end
+
+  # rubocop:enable Layout/LineLength
 end

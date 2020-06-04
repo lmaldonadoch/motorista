@@ -1,5 +1,6 @@
 module UsersHelper
   def user_buttons(user)
+    # rubocop:disable Layout/LineLength
     if user
       content_tag(:div, link_to('NEW ARTICLE', new_article_path, class: 'text-secondary') + '｜' + link_to('SIGN OUT', sign_out_path, class: 'text-secondary') + '｜' + link_to('PROFILE', user_path(User.find(session[:current_user_id])), class: 'text-secondary'), class: 'nav-item d-none d-lg-flex align-items-center justify-content-end text-secondary')
     else
@@ -29,3 +30,4 @@ module UsersHelper
     user.articles.reject { |article| article == most_voted_article }
   end
 end
+# rubocop:enable Layout/LineLength

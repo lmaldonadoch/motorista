@@ -175,10 +175,6 @@ nav {
     padding-bottom: 3px;
   }
 
-  .article_author {
-    color: $orange;
-  }
-
   a {
     color: black;
     text-decoration: none;
@@ -312,6 +308,10 @@ nav {
   font-weight: 700;
 }
 
+.article_author:hover {
+  color: $orange;
+}
+
 .show_article_text {
   width: 95%;
   max-width: 800px;
@@ -341,7 +341,8 @@ nav {
 }
 
 @media (min-width: 768px) {
-  .featured_article {
+  .featured_article,
+  .empty_category {
     height: 50vh;
   }
 

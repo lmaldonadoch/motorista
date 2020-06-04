@@ -12,7 +12,7 @@ module ArticlesHelper
   def articles_index_empty(category)
     content_tag(:div, link_to(category.capitalize, new_article_path, class: 'article_text') +
     content_tag(:p, "There is no #{category} article. Go ahead and crete one!",
-                class: 'article_text'), class: 'empty_category col-6 d-flex flex-column justify-content-around')
+                class: 'article_text'), class: 'empty_category col-6 col-lg-3 d-flex flex-column justify-content-around')
   end
 
   def articles_to_display(category)
