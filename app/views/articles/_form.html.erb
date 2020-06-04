@@ -1,4 +1,4 @@
-<%= form_for(@article, html: {multipart: true}) do |f| %>
+<%= form_for(@article, html: {multipart: true, class: 'form'}) do |f| %>
 
   <ul>
   <% @article.errors.full_messages.each do |error| %>
@@ -20,36 +20,28 @@
   </p>
 
   <%= f.label :categories %><br />
-  <p>
+  <div class="categories_wrapper d-flex flex-column flex-md-row justify-content-md-around">
     <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
-      <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> <p>
-        Cars
-      </p>
+      <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> 
+        <span class="checkbox_label">Cars</span>
     </div>
-  </p>
-  <p>
+  
     <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
-      <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> <p>
-        Bikes
-      </p>
+      <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> 
+        <span class="checkbox_label">Bikes</span>
     </div>
-  </p>
-  <p>
+  
     <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
-      <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> <p>
-        Off Road
-      </p>
+      <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> 
+        <span class="checkbox_label">Off Road</span>
     </div>
-  </p>
-  <p>
     <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
-      <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %> <p>
-        Racing
-      </p>
+      <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %>
+        <span class="checkbox_label">Racing</span>
     </div>
-  </p>
+  </div>
 
-    <div class="button_wrapper d-flex justify-content-center w-100">
-      <%= f.submit class: 'form_submit'%>
-    </div>
+  <div class="button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit class: 'form_submit'%>
+  </div>
 <% end %>

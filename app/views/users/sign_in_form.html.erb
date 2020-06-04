@@ -1,6 +1,6 @@
 <h1 class = new_article_title>Sign in</h1>
 
-<%= form_for(:user, url: sign_in_path) do |f| %>
+<%= form_for(:user, url: sign_in_path, html: {class: 'form'}) do |f| %>
 
   <%= f.label :name, 'Name' %>
   <%= f.text_field :name %>

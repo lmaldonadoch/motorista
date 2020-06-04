@@ -46,7 +46,7 @@ nav {
   }
 
   .nav_div_links {
-    height: 60px;
+    height: 90px;
     margin: 10px 0;
   }
 }
@@ -210,10 +210,10 @@ nav {
   font-weight: 700;
 }
 
-form {
+.form {
   color: black;
   width: 80%;
-  max-width: 500px;
+  max-width: 1000px;
   margin: auto;
 
   label {
@@ -221,7 +221,7 @@ form {
     margin: auto;
     font-size: 2rem;
     width: 100%;
-    color: $orange;
+    color: $white;
   }
 
   input,
@@ -238,10 +238,12 @@ form {
     min-height: 200px;
   }
 
-  #article_image,
+  #article_image {
+    background: $brown;
+    color: $white;
+  }
   .form_submit {
     background: $orange;
-    color: $brown;
   }
 
   .form_submit {
@@ -258,15 +260,37 @@ form {
       margin-right: 20px;
     }
 
+    .checkbox_label {
+      color: $white;
+    }
+
     p {
       white-space: nowrap;
     }
   }
 }
 
-#notice {
+#notice,
+#alert {
   padding: 0;
   margin: 0;
+}
+
+.notice,
+.alert {
+  padding: 0;
+  margin: 0;
+  background: $yellow;
+  color: black;
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.alert {
+  background: $orange;
+  color: $white;
 }
 
 .show_article_image {
@@ -290,20 +314,33 @@ form {
 
 .show_article_text {
   width: 95%;
+  max-width: 800px;
   margin: auto;
 }
 
-@media (min-width: 768px) {
-  nav {
-    .navbar-nav {
-      margin: auto;
-      background: none;
-      a {
-        color: #6c757d !important;
-      }
-    }
+.user_article_title {
+  a:hover {
+    color: $orange;
   }
+}
 
+.user_most_voted_article {
+  font-size: 1.5rem;
+  margin: 30px 20px;
+}
+
+.nav_form {
+  color: #6c757d;
+
+  input {
+    width: 50px;
+    background: none;
+    color: #6c757d;
+    border-radius: 25px;
+  }
+}
+
+@media (min-width: 768px) {
   .featured_article {
     height: 50vh;
   }
@@ -312,5 +349,38 @@ form {
     max-width: 500px;
     width: 50vw;
     white-space: nowrap;
+  }
+  nav {
+    .navbar-nav {
+      margin: auto;
+      background: none;
+      color: #6c757d !important;
+      a {
+        color: #6c757d !important;
+        font-size: 1rem;
+      }
+    }
+
+    .nav-item {
+      color: #6c757d !important;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  nav {
+    .navbar-nav {
+      margin: auto;
+      background: none;
+      color: #6c757d !important;
+      a {
+        color: #6c757d !important;
+        font-size: 1rem;
+      }
+    }
+
+    .nav-item {
+      color: #6c757d !important;
+    }
   }
 }

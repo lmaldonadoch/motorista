@@ -5,7 +5,7 @@
     <%change_flag = 0%>
     <% articles.each do |article|%>
       <% if change_flag < 2%>
-        <div class="article_container d-flex col col-md-6">
+        <div class="article_container d-flex col- col-md-6">
           <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
           <div class="article_content d-flex flex-column align-items-start justify-content-around">
             <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
@@ -54,7 +54,7 @@
 
     <% (4 - articles.length).times do |n|%>
       <% if (articles.length + n + 1) < 3 %>
-        <div class="article_container d-flex col col-md-6">
+        <div class="article_container d-flex col-12 col-md-6">
           <div class="empty_category_article_image d-flex flex-column justify-content-end" ></div>
           <div class="article_content d-flex flex-column align-items-start justify-content-around">
             <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
@@ -64,7 +64,7 @@
           </div>
         </div>
       <% else %>
-        <div class="article_container d-flex col col-md-6">
+        <div class="article_container d-flex col-12 col-md-6">
           <div class="article_content d-flex flex-column align-items-start justify-content-around">
             <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
 

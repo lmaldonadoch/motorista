@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :get_articles, only: [:index, :articles_by_category]
+  before_action :user_registered?, only: [:new, :edit]
 
   # GET /articles
   # GET /articles.json
@@ -85,6 +86,15 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search_article
+    if params[:article][:title] == ''
+      redirect_to :search, alert: 'Please provide a title to look for'
+    else
+      @articles = Article.where("title LIKE '%#{params[:article][:title]}%'")
+      render :search
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -128,5 +138,9 @@ class ArticlesController < ApplicationController
           @articles_by_category << @race_articles
         end
       end
+    end
+
+    def user_registered?
+      redirect_to sign_in_path, alert: 'You need to be signed in to create an article. Please sign in here first' unless session[:current_user_id]
     end
 end

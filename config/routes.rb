@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get '/racing', to: 'articles#articles_by_category', category: 'racing'
 
   get '/vote', to: 'articles#vote'
+
+  get '/search', to: 'articles#search'
+  post 'search', to: 'articles#search_article'
 end

@@ -1,0 +1,64 @@
+<h1 class = new_article_title>Search for an article</h1>
+
+<%= form_for(:article, url: search_path, html: {class: 'form'}) do |f| %>
+
+  <%= f.label :title, 'Article to look for' %>
+  <%= f.text_field :title %>
+
+  <div class="actions button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit 'Search', class: 'form_submit' %>
+  </div>
+  
+
+<%end%>
+
+<% if @articles %>
+
+  <div class="container-fluid px-0">
+    <div class="row no-gutters">
+      <%change_flag = 0%>
+      <% @articles.each do |article|%>
+        <% if change_flag < 2%>
+          <div class="article_container d-flex col- col-md-6">
+            <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+            <div class="article_content d-flex flex-column align-items-start justify-content-around">
+              <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+              <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+              <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
+              <%= votes_button(article) %>
+            </div>
+          </div>
+          <% change_flag += 1%>
+        <% elsif change_flag == 2 %>
+          <div class="article_container d-flex col col-md-6">
+            <div class="article_content d-flex flex-column align-items-start justify-content-around">
+              <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+              <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+              <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
+              <%= votes_button(article) %>
+            </div>
+            <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+          </div>
+          <% change_flag += 1%>
+        <% else%>
+          <div class="article_container d-flex col col-md-6">
+            <div class="article_content d-flex flex-column align-items-start justify-content-around">
+              <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+              <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+              <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
+              <%= votes_button(article) %>
+            </div>
+            <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+          </div>
+          <% change_flag = 0%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
