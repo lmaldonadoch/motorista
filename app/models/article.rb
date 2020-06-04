@@ -4,12 +4,10 @@ class Article < ApplicationRecord
   has_many :article_categories, foreign_key: "articleid"
   has_many :categories, through: :article_categories, source: 'category'
 
-  has_one_attached :image
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }, length: {maximum: 50}
   validates :text, presence: true
-  
-  
+  validates :image, presence: true
   
 
   def number_of_votes

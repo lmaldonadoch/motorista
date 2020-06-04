@@ -1,7 +1,7 @@
 
 <% if @featured_article %>
-  <%= link_to article_path(@featured_article) do %>
-    <div class="col featured_article d-flex flex-column justify-content-end" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(<%= rails_blob_url(@featured_article.image) %>);">
+  <%= link_to article_path(@featured_article), class: 'featured_article_link_wrapper' do %>
+    <div class="col-12 col-lg-12 featured_article d-flex flex-column justify-content-end" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(<%= @featured_article.image %>) no-repeat center center; background-size: cover;">
       <h1 class="article_title">
         <%= @featured_article.title%>
       </h1>

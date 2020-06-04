@@ -1,34 +1,79 @@
 <% articles = articles_to_display(params[:category])%>
 
 <div class="container-fluid px-0">
-  <div class="row">
+  <div class="row no-gutters">
+    <%change_flag = 0%>
     <% articles.each do |article|%>
-      <div class="article_container d-flex">
-        <div class="col category_article_image d-flex flex-column justify-content-end" style = "background: linear-gradient( rgba(77, 66, 60, .4), rgba(77, 66, 60, .4) ), url(<%= rails_blob_url(article.image) %>);"></div>
-        <div class="article_content d-flex flex-column align-items-start justify-content-around">
-          <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+      <% if change_flag < 2%>
+        <div class="article_container d-flex col col-md-6">
+          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
 
-          <%= link_to article.title, article_path(article), class: 'category_article_title'%>
-          <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
 
-          <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
 
-          <%= votes_button(article) %>
+            <%= votes_button(article) %>
+          </div>
         </div>
-      </div>
+        <% change_flag += 1%>
+      <% elsif change_flag == 2 %>
+        <div class="article_container d-flex col col-md-6">
+          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
 
+            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
+            <%= votes_button(article) %>
+          </div>
+          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+        </div>
+        <% change_flag += 1%>
+      <% else%>
+        <div class="article_container d-flex col col-md-6">
+          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+
+            <%= link_to article.title, article_path(article), class: 'category_article_title'%>
+            <%= content_tag(:p, truncate(article.text, length: 200), class: 'category_article_text')%>
+
+            <p class = 'article_author'> Article by: <%= article.author.name %> </p>
+
+            <%= votes_button(article) %>
+          </div>
+          <div class="category_article_image d-flex flex-column justify-content-end" style = "background: url(<%= article.image %>);"></div>
+        </div>
+        <% change_flag = 0%>
+      <% end %>
     <% end %>
 
-    <% (3 - articles.length).times do |n|%>
-      <div class="article_container d-flex">
-        <div class="col empty_category_article_image d-flex flex-column justify-content-end" ></div>
-        <div class="article_content d-flex flex-column align-items-start justify-content-around">
-          <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+    <% (4 - articles.length).times do |n|%>
+      <% if (articles.length + n + 1) < 3 %>
+        <div class="article_container d-flex col col-md-6">
+          <div class="empty_category_article_image d-flex flex-column justify-content-end" ></div>
+          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
 
-          <%= link_to 'Create some more content!', new_article_url, class: 'category_article_title'%>
-          <p class="category_article_text"> There are not enough articles yet, go ahead and create some more amazing content of your own!</p>
+            <%= link_to 'Create some more content!', new_article_url, class: 'category_article_title'%>
+            <p class="category_article_text"> There are not enough articles yet, go ahead and create some more amazing content of your own!</p>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="article_container d-flex col col-md-6">
+          <div class="article_content d-flex flex-column align-items-start justify-content-around">
+            <%= content_tag(:p, params[:category].capitalize, class: 'category_category')%>
+
+            <%= link_to 'Create some more content!', new_article_url, class: 'category_article_title'%>
+            <p class="category_article_text"> There are not enough articles yet, go ahead and create some more amazing content of your own!</p>
+          </div>
+          <div class="empty_category_article_image d-flex flex-column justify-content-end" ></div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
