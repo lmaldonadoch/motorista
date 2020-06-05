@@ -117,11 +117,11 @@ Give a ⭐️ if you like this project!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/shubham14p3/members-only.svg?style=flat-square
-[contributors-url]: https://github.com/shubham14p3/ror-social-scaffold/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/shubham14p3/members-only.svg?style=flat-square
-[forks-url]: https://github.com/shubham14p3/ror-social-scaffold/network/members
-[stars-shield]: https://img.shields.io/github/stars/shubham14p3/members-only.svg?style=flat-square
-[stars-url]: https://github.com/shubham14p3/ror-social-scaffold/stargazers
-[issues-shield]: https://img.shields.io/github/issues/shubham14p3/members-only.svg?style=flat-square
-[issues-url]: https://github.com/shubham14p3/ror-social-scaffold/issues
+[contributors-shield]: https://img.shields.io/github/contributors/lmaldonadoch/motorista.svg?style=flat-square
+[contributors-url]: https://github.com/lmaldonadoch/motorista/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/lmaldonadoch/motorista.svg?style=flat-square
+[forks-url]: https://github.com/lmaldonadoch/motorista/network/members
+[stars-shield]: https://img.shields.io/github/stars/lmaldonadoch/motorista.svg?style=flat-square
+[stars-url]: https://github.com/lmaldonadoch/motorista/stargazers
+[issues-shield]: https://img.shields.io/github/issues/lmaldonadoch/motorista.svg?style=flat-square
+[issues-url]: https://github.com/lmaldonadoch/motorista/issues
