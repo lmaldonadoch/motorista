@@ -20,7 +20,7 @@ RSpec.feature 'Sign', type: :feature do
 
       within find('.form') do
         user = User.create(name: 'test')
-        fill_in 'user_name',	with: user.name
+        fill_in 'user_name', with: user.name
         click_button 'commit'
       end
       expect(current_path).to eq('/')
