@@ -29,6 +29,11 @@
 
 - Ruby v2.6.5
 - Ruby on Rails v6.0.3.1
+- Bootstrap 4
+- Fontawesome
+- SASS
+- RSpec (Testing)
+- Capybara (Testing)
 
 ## Getting Started
 
