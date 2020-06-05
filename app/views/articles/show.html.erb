@@ -13,9 +13,14 @@
       <%= @article.text %>
     </p>
 
-    <p class = 'article_author'>
-      Article by: <%= @article.author.name %>
-    </p>
+    <div class="author_like_container d-flex justify-content-around w-100">
+      <p class = 'article_author'>
+        Article by: <%= @article.author.name %>
+      </p>
+      <div class="vote_button_container">
+        <%= votes_button(@article) %>
+      </div>
+    </div>
   </div>
 
 </div>

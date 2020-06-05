@@ -33,7 +33,7 @@ module ArticlesHelper
     votes = article.votes
 
     unless session[:current_user_id]
-      return content_tag(:p, "This article cas been voted #{votes.length} times", class: 'votes_count')
+      return content_tag(:p, "This article has been voted #{votes.length} times", class: 'votes_count')
     end
 
     if votes.empty?
@@ -45,7 +45,7 @@ module ArticlesHelper
     votes.each do |vote|
       if vote.userid == session[:current_user_id]
         return content_tag(:p,
-                           "Thank you for voting for this article! This article cas been voted #{votes.length} times!",
+                           "Thank you for voting for this article! This article has been voted #{votes.length} times!",
                            class: 'votes_count')
       end
     end

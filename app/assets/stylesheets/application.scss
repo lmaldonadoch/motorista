@@ -313,6 +313,23 @@ nav {
   color: $orange;
 }
 
+.vote_button_container {
+  max-width: 50%;
+  color: $orange;
+
+  a {
+    color: $orange;
+    font-size: 1.2rem;
+    transition: font-size 0.5s;
+    margin-left: 15px;
+  }
+
+  a:hover {
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+}
+
 .show_article_text {
   width: 95%;
   max-width: 800px;
