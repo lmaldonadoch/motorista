@@ -56,6 +56,10 @@ module ArticlesHelper
   end
 
   def article_destroy(article)
-    link_to('Delete this article', article_path(@article),method: :delete, data: {confirm: "Really delete the article?"}, class: 'votes_count')if article.authorid == session[:current_user_id]
+    return unless article.authorid == session[:current_user_id]
+
+    link_to('Delete this article',
+            article_path(@article), method: :delete,
+                                    data: { confirm: 'Really delete the article?' }, class: 'votes_count')
   end
 end
