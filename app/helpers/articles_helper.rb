@@ -54,4 +54,8 @@ module ArticlesHelper
     link_to('', vote_path(article_id: article.id), class: 'fa fa-thumbs-up vote_button'),
                 class: 'd-flex justify-content-around w-100 votes_count')
   end
+
+  def article_destroy(article)
+    link_to('Delete this article', article_path(@article),method: :delete, data: {confirm: "Really delete the article?"}, class: 'votes_count')if article.authorid == session[:current_user_id]
+  end
 end

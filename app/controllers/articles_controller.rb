@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   before_action :find_articles, only: %i[index articles_by_category]
-  before_action :user_registered?, only: %i[new edit]
+  before_action :user_registered?, only: %i[new edit destroy]
 
   # GET /articles
   # GET /articles.json
@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: 'Article was successfully deleted.' }
       format.json { head :no_content }
     end
   end

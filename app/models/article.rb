@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories, source: 'category'
 
   validates :title, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 100 }
-  validates :text, presence: true
+  validates :text, presence: true, length: { minimum: 100 }
   validates :image, presence: true
 
   def number_of_votes
