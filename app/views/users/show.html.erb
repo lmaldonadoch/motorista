@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p class="show_article_title">
+  <%= @user.name %>
+</p>
+
+<p class = 'article_author text-center'>
+  Author since: <%= @user.created_at %>
+</p>
+
+<% if @user.articles.empty?%>
+  <p class="user_most_voted_article">
+    You have no articles yet, why don't we start? <%= link_to 'Create a new article now!', new_article_path, class: 'article_author' %>
+  </p>
+
+<% else %>
+
+  <%users_most_voted_article = most_voted_article(@user)%>
+  <p class="user_most_voted_article">
+    This is your most voted article with <%=users_most_voted_article.number_of_votes%> votes!
+  </p>
+
+  <div class="show_article_image" style = "background: url(<%= users_most_voted_article.image %>) no-repeat center center; background-size: cover;"></div>
+
+  <div class="user_article_title w-100 d-flex justify-content-center">
+    <%=link_to users_most_voted_article.title, article_path(users_most_voted_article), class: "show_article_title text-center"%>
+  </div>
+
+  <div class="show_article_text">
+    <p>
+      <%= truncate(users_most_voted_article.text, length: 300) %>
+    </p>
+  </div>
+
+  <p class="user_most_voted_article">
+    Here is a collection of the rest of your articles:
+  </p>
+
+  <% articles = users_articles(users_most_voted_article, @user)%>
+
+  <%= render 'articles/articles_to_show', :locals => {articles: articles} %>
+  </div>
+</div>
+<% end %>

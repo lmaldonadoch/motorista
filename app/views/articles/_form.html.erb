@@ -1,0 +1,47 @@
+<%= form_for(@article, html: {multipart: true, class: 'form'}) do |f| %>
+
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.label :image, 'Paste the URL of the image' %><br />
+    <%= f.text_field :image %>
+  </p>
+
+  <%= f.label :categories %><br />
+  <div class="categories_wrapper d-flex flex-column flex-md-row justify-content-md-around">
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Cars', '' %> 
+        <span class="checkbox_label">Cars</span>
+    </div>
+  
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Bikes', '' %> 
+        <span class="checkbox_label">Motorcycles</span>
+    </div>
+  
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Off Road', '' %> 
+        <span class="checkbox_label">Off Road</span>
+    </div>
+    <div class="checkbox_wrapper d-flex align-items-baseline justify-content-start">
+      <%= f.check_box :article_categories, {multiple: true}, 'Racing', '' %>
+        <span class="checkbox_label">Racing</span>
+    </div>
+  </div>
+
+  <div class="button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit class: 'form_submit'%>
+  </div>
+<% end %>

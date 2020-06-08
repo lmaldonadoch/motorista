@@ -1,0 +1,411 @@
+@import "bootstrap/scss/bootstrap";
+
+$orange: rgb(247, 98, 8);
+$brown: rgb(77, 66, 60);
+$white: rgb(255, 255, 255);
+$yellow: rgb(222, 219, 10);
+
+body {
+  color: $white;
+  background: rgba(77, 66, 60, 0.7);
+  position: relative;
+  padding-bottom: 60px;
+  min-height: 100vh;
+}
+
+.container-fluid {
+  overflow-x: hidden !important;
+}
+
+nav {
+  .navbar-nav {
+    margin: auto;
+    background: $brown;
+  }
+
+  li {
+    white-space: nowrap;
+    margin-left: 20px;
+
+    a {
+      color: $white !important;
+    }
+
+    a:hover {
+      color: $orange !important;
+    }
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .nav_div_links {
+    height: 90px;
+    margin: 10px 0;
+  }
+}
+
+.nav-item {
+  white-space: nowrap;
+  color: $white;
+}
+
+.index_container {
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}
+
+.featured_article_wrapper,
+.article_wrapper {
+  background: rgba(77, 66, 60, 0.3);
+}
+
+.featured_article_link_wrapper {
+  width: 100%;
+}
+
+.featured_article {
+  height: 35vh;
+  min-height: 250px;
+
+  .article_title {
+    color: $orange;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+
+  .article_text {
+    line-height: 1rem;
+    font-weight: 700;
+  }
+}
+
+.empty_category {
+  height: 35vh;
+  min-height: 250px;
+  background: url(logo.png) no-repeat center center;
+  background-size: cover;
+
+  .article_title {
+    color: $orange;
+    font-weight: 800;
+    font-size: 1.1rem;
+  }
+
+  .article_text {
+    line-height: 1rem;
+    font-weight: 700;
+  }
+}
+
+.yellow_line {
+  width: 100px;
+  border: $yellow 1px solid;
+  margin-left: 0;
+}
+
+.footer {
+  padding: auto 20px;
+  font-size: 0.8rem;
+  background: $brown;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+
+  a {
+    color: $orange;
+    text-decoration: none;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social_link_container {
+    background: $orange;
+    padding: 6px;
+    border-radius: 50%;
+    height: fit-content;
+    margin: auto 5px;
+
+    a {
+      color: $brown;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.category_article_image {
+  min-width: 50%;
+  height: 50vh;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.empty_category_article_image {
+  background: linear-gradient(rgba(77, 66, 60, 0.4), rgba(77, 66, 60, 0.4)),
+    url("logo.png");
+  min-width: 50%;
+  height: 50vh;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+.article_content {
+  box-sizing: border-box !important;
+  color: black;
+  padding: 20px;
+  background: $white;
+
+  .category_category {
+    color: $orange;
+    line-height: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: $orange 2px solid;
+    padding-bottom: 3px;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  a:hover {
+    color: $orange;
+  }
+
+  .votes_count {
+    color: $orange;
+
+    a {
+      color: $orange;
+      font-size: 1.2rem;
+      transition: font-size 0.5s;
+    }
+
+    a:hover {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.new_article_title {
+  text-align: center;
+  color: $orange;
+  font-weight: 700;
+}
+
+.destroy_article {
+  a {
+    color: $orange;
+  }
+  a:hover {
+    color: $orange;
+  }
+}
+
+.form {
+  color: black;
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+
+  label {
+    text-align: center;
+    margin: auto;
+    font-size: 2rem;
+    width: 100%;
+    color: $white;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: $brown 1px solid;
+    border-radius: 25px;
+    background: $brown;
+    color: $white;
+  }
+
+  textarea {
+    height: 50vh;
+    min-height: 200px;
+  }
+
+  #article_image {
+    background: $brown;
+    color: $white;
+  }
+  .form_submit {
+    background: $orange;
+  }
+
+  .form_submit {
+    width: 200px;
+    margin: 30px auto;
+    height: 2rem;
+  }
+
+  .checkbox_wrapper {
+    margin-left: 0;
+
+    input {
+      width: fit-content;
+      margin-right: 20px;
+    }
+
+    .checkbox_label {
+      color: $white;
+    }
+
+    p {
+      white-space: nowrap;
+    }
+  }
+}
+
+#notice,
+#alert {
+  padding: 0;
+  margin: 0;
+}
+
+.notice,
+.alert {
+  padding: 0;
+  margin: 0;
+  background: $yellow;
+  color: black;
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.alert {
+  background: $orange;
+  color: $white;
+}
+
+.show_article_image {
+  margin: 0 0 30px;
+  padding: 0;
+  height: 50vh;
+  min-height: 250px;
+  width: 100vw;
+}
+
+.show_article_title {
+  font-size: 2rem;
+  color: $white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.article_author {
+  color: $orange;
+  font-weight: 700;
+}
+
+.article_author:hover {
+  color: $orange;
+}
+
+.vote_button_container {
+  max-width: 50%;
+  color: $orange;
+
+  a {
+    color: $orange;
+    font-size: 1.2rem;
+    transition: font-size 0.5s;
+    margin-left: 15px;
+  }
+
+  a:hover {
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+}
+
+.show_article_text {
+  width: 95%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.user_article_title {
+  a:hover {
+    color: $orange;
+  }
+}
+
+.user_most_voted_article {
+  font-size: 1.5rem;
+  margin: 30px 20px;
+}
+
+.nav_form {
+  color: #6c757d;
+
+  input {
+    width: 50px;
+    background: none;
+    color: #6c757d;
+    border-radius: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .featured_article,
+  .empty_category {
+    height: 50vh;
+  }
+
+  .footer_links {
+    max-width: 500px;
+    width: 50vw;
+    white-space: nowrap;
+  }
+  nav {
+    .navbar-nav {
+      margin: auto;
+      a {
+        font-size: 1rem;
+      }
+    }
+
+    .nav-item {
+      color: #6c757d !important;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  nav {
+    .navbar-nav {
+      margin: auto;
+      background: none;
+      color: #6c757d !important;
+      a {
+        color: #6c757d !important;
+        font-size: 1rem;
+      }
+    }
+
+    .nav-item {
+      color: #6c757d !important;
+    }
+  }
+}
