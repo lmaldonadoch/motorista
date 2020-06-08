@@ -1,0 +1,20 @@
+<h1 class = new_article_title>Search for an article</h1>
+
+<%= form_for(:article, url: search_path, html: {class: 'form'}) do |f| %>
+
+  <%= f.label :title, 'Article to look for' %>
+  <%= f.text_field :title %>
+
+  <div class="actions button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit 'Search', class: 'form_submit' %>
+  </div>
+  
+
+<%end%>
+
+<% if @articles %>
+
+  <%= render 'articles_to_show', :locals => {articles: @articles}%>
+    </div>
+  </div>
+<% end %>
