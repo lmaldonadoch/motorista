@@ -62,12 +62,6 @@ $ rake db:setup
 
 ```
 
-Next, migrate the database:
-
-```
-$ rails db:migrate
-```
-
 Finally, start server:
 
 ```
