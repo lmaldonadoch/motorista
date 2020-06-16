@@ -24,10 +24,10 @@
         <%=link_to 'SEARCH', search_path, class: 'nav-link' %>
       </li>
       <li class="nav-item d-flex d-lg-none align-items-center flex-nowrap">
-        <%= user_buttons_nav_small(session[:current_user_id])%>
+        <%= user_buttons_nav_small(current_user)%>
       </li>
     </ul>
 
-    <%= user_buttons(session[:current_user_id])%>
+    <%= user_buttons(current_user)%>
   </div>
 </nav>

@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user = if session[:current_user_id].nil?
+    @user = if current_user.nil?
               User.new
             else
-              User.find(session[:current_user_id])
+              User.find(current_user.id)
             end
   end
 
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:current_user_id] = @user.id
       redirect_to root_path
     else
       render 'new'
@@ -34,7 +33,6 @@ class UsersController < ApplicationController
   def sign_in
     @user = User.find_by(name: params[:user][:name]) unless params[:user].nil?
     if @user
-      session[:current_user_id] = @user.id
       redirect_to root_path
     else
       @user = User.new
@@ -43,8 +41,7 @@ class UsersController < ApplicationController
   end
 
   def sign_out
-    reset_session
-    redirect_to root_path, alert: 'User Signed out Successfully'
+    redirect_to destroy_user_session_path
   end
 
   # PATCH/PUT /users/1
@@ -75,11 +72,11 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :email, :password, :passord_confirmation)
   end
 end

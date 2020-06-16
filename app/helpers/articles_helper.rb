@@ -18,7 +18,6 @@ module ArticlesHelper
 
   def articles_to_display(category)
     if category == 'cars'
-      p @cars_articles
       @cars_articles
     elsif category == 'bikes'
       @bikes_articles
@@ -32,7 +31,7 @@ module ArticlesHelper
   def votes_button(article)
     votes = article.votes
 
-    unless session[:current_user_id]
+    unless current_user
       return content_tag(:p, "This article has been voted #{votes.length} times", class: 'votes_count')
     end
 
@@ -43,7 +42,7 @@ module ArticlesHelper
     end
 
     votes.each do |vote|
-      if vote.userid == session[:current_user_id]
+      if vote.userid == current_user.id
         return content_tag(:p,
                            "Thank you for voting for this article! This article has been voted #{votes.length} times!",
                            class: 'votes_count')
@@ -56,7 +55,7 @@ module ArticlesHelper
   end
 
   def article_destroy(article)
-    return unless article.authorid == session[:current_user_id]
+    return unless article.authorid == current_user.id
 
     link_to('Delete this article',
             article_path(@article), method: :delete,

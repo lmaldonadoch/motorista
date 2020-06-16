@@ -1,13 +1,24 @@
 <h1 class = new_article_title>Sign in</h1>
 
-<%= form_for(:user, url: sign_in_path, html: {class: 'form'}) do |f| %>
-
-  <%= f.label :name, 'Name' %>
-  <%= f.text_field :name %>
-
-  <div class="actions button_wrapper d-flex justify-content-center w-100">
-    <%= f.submit 'Sign in', class: 'form_submit' %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-  
 
-<%end%>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions  button_wrapper d-flex justify-content-center w-100">
+    <%= f.submit "Log in", class: 'form_submit' %>
+  </div>
+<% end %>
