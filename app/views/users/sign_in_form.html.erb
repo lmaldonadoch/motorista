@@ -26,7 +26,13 @@
 <% end %>
 
 <% unless current_user %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+  <%= link_to (user_facebook_omniauth_authorize_path) do %>
+    <div class="form user-form facebook-form">
+      <i class="fa fa-facebook-square"></i><span class="sign_in_facebook">Sign in with Facebook</span>
+    </div>
+  <% end %>
 <% else %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <div class="form user-form facebook-form">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </div>
 <% end %>

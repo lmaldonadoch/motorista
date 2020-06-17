@@ -354,6 +354,10 @@ nav {
   box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
 }
 
+a {
+  color: $brown;
+}
+
 .show_article_image {
   margin: 0 0 30px;
   padding: 0;
@@ -394,6 +398,10 @@ nav {
   }
 }
 
+.user_show_container {
+  padding: 30px;
+}
+
 .destroy_article {
   margin-bottom: 30px;
 }
@@ -428,6 +436,36 @@ nav {
 
 .user-form {
   max-width: 500px;
+}
+
+.facebook-form {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 2rem;
+  color: $brown;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    font-size: 2.5rem;
+    color: #3b5998;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  span {
+    margin-left: 20px;
+  }
+}
+
+.facebook-form:hover {
+  text-decoration: none;
+
+  i {
+    color: $orange;
+  }
 }
 
 @media (min-width: 768px) {
