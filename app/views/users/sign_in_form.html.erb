@@ -24,3 +24,9 @@
     <% end %>
   </div>
 <% end %>
+
+<% unless current_user %>
+  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+<% else %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% end %>
