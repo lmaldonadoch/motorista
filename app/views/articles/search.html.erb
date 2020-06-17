@@ -5,8 +5,10 @@
   <%= f.label :title, 'Article to look for' %>
   <%= f.text_field :title %>
 
-  <div class="actions button_wrapper d-flex justify-content-center w-100">
-    <%= f.submit 'Search', class: 'form_submit' %>
+  <div class="proceed_button">
+    <%= button_tag(type: 'submit', class: "proceed", id: 'validForm') do%>
+      <span>Search</span>
+    <% end %>
   </div>
   
 
