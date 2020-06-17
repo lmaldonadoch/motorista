@@ -341,11 +341,12 @@ nav {
 }
 
 .show_article_text_container {
-  width: 80%;
-  max-width: 768px;
+  width: 90%;
+  max-width: 1000px;
   padding: 20px;
   margin: auto;
   margin-bottom: 30px;
+  margin-top: 30px;
   padding-left: 25px !important;
   padding-right: 25px !important;
   -webkit-box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
@@ -451,6 +452,10 @@ nav {
     .nav-item {
       color: #6c757d !important;
     }
+  }
+
+  .show_article_text_container {
+    width: 80%;
   }
 }
 
