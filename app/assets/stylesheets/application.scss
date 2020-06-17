@@ -1,4 +1,4 @@
-@import "bootstrap/scss/bootstrap";
+@import 'bootstrap/scss/bootstrap';
 
 $orange: rgb(247, 98, 8);
 $brown: rgb(77, 66, 60);
@@ -6,8 +6,8 @@ $white: rgb(255, 255, 255);
 $yellow: rgb(222, 219, 10);
 
 body {
-  color: $white;
-  background: rgba(77, 66, 60, 0.7);
+  color: $brown;
+  background: rgba(77, 66, 60, 0.1);
   position: relative;
   padding-bottom: 60px;
   min-height: 100vh;
@@ -153,7 +153,7 @@ nav {
 
 .empty_category_article_image {
   background: linear-gradient(rgba(77, 66, 60, 0.4), rgba(77, 66, 60, 0.4)),
-    url("logo.png");
+    url('logo.png');
   min-width: 50%;
   height: 50vh;
   background-size: cover !important;
@@ -204,6 +204,7 @@ nav {
   text-align: center;
   color: $orange;
   font-weight: 700;
+  margin-top: 30px;
 }
 
 .destroy_article {
@@ -218,15 +219,22 @@ nav {
 .form {
   color: black;
   width: 80%;
-  max-width: 1000px;
+  max-width: 768px;
   margin: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  -webkit-box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
+  -moz-box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
+  box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
 
   label {
     text-align: center;
     margin: auto;
     font-size: 2rem;
     width: 100%;
-    color: $white;
+    color: $brown;
   }
 
   input,
@@ -234,8 +242,8 @@ nav {
     width: 100%;
     border: $brown 1px solid;
     border-radius: 25px;
-    background: $brown;
-    color: $white;
+    background: none;
+    color: $brown;
   }
 
   textarea {
@@ -243,12 +251,46 @@ nav {
     min-height: 200px;
   }
 
-  #article_image {
-    background: $brown;
-    color: $white;
+  .proceed_button {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .form_submit {
+
+  .proceed {
+    height: 70px;
+    width: 100%;
+    max-width: 300px;
     background: $orange;
+    border: none;
+    cursor: pointer;
+    color: $brown;
+    font-size: 1.5rem;
+  }
+
+  .proceed span {
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .proceed span::after {
+    content: '»';
+    opacity: 0;
+    transition: 0.5s;
+    position: absolute;
+    top: 0;
+    right: -25px;
+  }
+
+  .proceed:hover span {
+    padding-right: 30px;
+  }
+
+  .proceed:hover span::after {
+    right: 0;
+    opacity: 1;
   }
 
   .form_submit {
@@ -266,7 +308,7 @@ nav {
     }
 
     .checkbox_label {
-      color: $white;
+      color: $brown;
     }
 
     p {
@@ -298,17 +340,30 @@ nav {
   color: $white;
 }
 
+.show_article_text_container {
+  width: 90%;
+  max-width: 1000px;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
+  -webkit-box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
+  -moz-box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
+  box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
+}
+
 .show_article_image {
   margin: 0 0 30px;
   padding: 0;
   height: 50vh;
   min-height: 250px;
-  width: 100vw;
+  width: 100%;
 }
 
 .show_article_title {
   font-size: 2rem;
-  color: $white;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -339,6 +394,10 @@ nav {
   }
 }
 
+.destroy_article {
+  margin-bottom: 30px;
+}
+
 .show_article_text {
   width: 95%;
   max-width: 800px;
@@ -367,6 +426,10 @@ nav {
   }
 }
 
+.user-form {
+  max-width: 500px;
+}
+
 @media (min-width: 768px) {
   .featured_article,
   .empty_category {
@@ -389,6 +452,10 @@ nav {
     .nav-item {
       color: #6c757d !important;
     }
+  }
+
+  .show_article_text_container {
+    width: 80%;
   }
 }
 

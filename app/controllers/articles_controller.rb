@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
   before_action :find_articles, only: %i[index articles_by_category]
-  before_action :user_registered?, only: %i[new edit destroy]
+  before_action :authenticate_user!, only: %i[new edit destroy]
 
   # GET /articles
   # GET /articles.json
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.authorid = session[:current_user_id]
+    @article.authorid = current_user.id
 
     respond_to do |format|
       if @article.save
@@ -72,10 +72,10 @@ class ArticlesController < ApplicationController
 
   def vote
     @article = Article.find(params[:article_id])
-    if !@article.votes.empty? && @article.votes.any? { |n| n.userid == session[:current_user_id] }
+    if !@article.votes.empty? && @article.votes.any? { |n| n.userid == current_user.id }
       redirect_to article_path(@article), alert: 'You have already voted for this article'
     else
-      Vote.create(articleid: @article.id, userid: session[:current_user_id])
+      Vote.create(articleid: @article.id, userid: current_user.id)
       redirect_back(fallback_location: root_path)
     end
   end
@@ -139,12 +139,4 @@ class ArticlesController < ApplicationController
   # rubocop:enable Metrics/CyclomaticComplexity
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/MethodLength
-
-  # rubocop:disable Layout/LineLength
-
-  def user_registered?
-    redirect_to sign_in_path, alert: 'You need to be signed in to create an article. Please sign in here first' unless session[:current_user_id]
-  end
-
-  # rubocop:enable Layout/LineLength
 end
