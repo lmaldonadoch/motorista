@@ -55,6 +55,7 @@ module ArticlesHelper
   end
 
   def article_destroy(article)
+    return unless current_user
     return unless article.authorid == current_user.id
 
     link_to('Delete this article',

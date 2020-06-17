@@ -2,28 +2,30 @@
 
 <div class="show_article_wrapper">
 
-  <div class="show_article_image" style = "background: url(<%= @article.image %>) no-repeat center center; background-size: cover;"></div>
+  <div class="show_article_text_container">
 
+    <div class="show_article_image" style = "background: url(<%= @article.image %>) no-repeat center center; background-size: cover;"></div>
 
-  <p class="show_article_title"><%= @article.title %></p>
-
-
-  <div class="show_article_text">
-    <p>
-      <%= @article.text %>
-    </p>
-
-    <div class="author_like_container d-flex justify-content-around w-100">
-      <p class = 'article_author'>
-        Article by: <%= @article.author.name %>
+    <p class="show_article_title"><%= @article.title %></p>
+  
+  
+    <div class="show_article_text">
+      <p>
+        <%= @article.text %>
       </p>
-      <div class="vote_button_container">
-        <%= votes_button(@article) %>
+  
+      <div class="author_like_container d-flex justify-content-around w-100">
+        <p class = 'article_author'>
+          Article by: <%= @article.author.name %>
+        </p>
+        <div class="vote_button_container">
+          <%= votes_button(@article) %>
+        </div>
       </div>
-    </div>
-
-    <div class="destroy_article">
-      <%= article_destroy(@article)%>
+  
+      <div class="destroy_article">
+        <%= article_destroy(@article)%>
+      </div>
     </div>
   </div>
 
