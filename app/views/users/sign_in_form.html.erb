@@ -26,9 +26,12 @@
 <% end %>
 
 <% unless current_user %>
-  <%= link_to (user_facebook_omniauth_authorize_path) do %>
+  <%= link_to (user_facebook_omniauth_authorize_path), class: 'facebook-form-link' do %>
     <div class="form user-form facebook-form">
-      <i class="fa fa-facebook-square"></i><span class="sign_in_facebook">Sign in with Facebook</span>
+      <div>
+        <i class="fa fa-facebook-square"></i><span class="sign_in_facebook">Sign in with Facebook</span>
+      </div>
+      <p class="policies">Feature not available on deployment due to privacy policy.</p>
     </div>
   <% end %>
 <% else %>

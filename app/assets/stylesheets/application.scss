@@ -460,6 +460,23 @@ a {
   }
 }
 
+.facebook-form-link:hover {
+  text-decoration: none;
+}
+
+.facebook-form {
+  flex-direction: column;
+
+  .policies {
+    color: $orange;
+    font-size: 0.9rem;
+  }
+
+  .policies:hover {
+    text-decoration: none !important;
+  }
+}
+
 .facebook-form:hover {
   text-decoration: none;
 
