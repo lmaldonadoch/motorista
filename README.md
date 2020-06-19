@@ -5,7 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-> Motorista is an online magazine for the petrolheads, designed to host articles from all around the automotive and motorcycle world. The categories currently implemented are Cars, Motorcycles, Off-Road, and Racing. The features of this website are user creation/log-in, user profile with the most voted article featured at the top, and a list of the latest articles written by the author. For the articles section, we have the creation of new articles, a show page for each one of them featuring the article picture, title, and content. The home page is a webpage that displays the featured article at the top (Most voted) and a list of categories featuring the most recent article added to that section as cover. Signed-in users can upvote their favorite article to see it featured on the home page. The website is fully responsive, with an interactive sliding menu bar. The last feature I will mention here is the search option. You can search for a word or phrase and the related articles will be displayed. For a full experience on the web app, please make sure to visit its [Live Version right here!](https://afternoon-dawn-70531.herokuapp.com/articles)
+> Motorista is an online magazine for the petrolheads, designed to host articles from all around the automotive and motorcycle world. The categories currently implemented are Cars, Motorcycles, Off-Road, and Racing. The features of this website are user creation/log-in, user profile with the most voted article featured at the top, and a list of the latest articles written by the author. For the articles section, we have the creation of new articles, a show page for each one of them featuring the article picture, title, and content. The home page is a webpage that displays the featured article at the top (Most voted) and a list of categories featuring the most recent article added to that section as cover. Signed-in users can upvote their favorite article to see it featured on the home page. The website is fully responsive, with an interactive sliding menu bar. The last feature I will mention here is the search option. You can search for a word or phrase and the related articles will be displayed. For a full experience on the web app, please make sure to visit its [Live Version right here!](https://motorista-web-magazine.herokuapp.com/)
 
 ![screenshot1](app/assets/images/screenshot01.png)
 
@@ -19,11 +19,11 @@
 
 ## Live Version
 
-[Live Version](https://afternoon-dawn-70531.herokuapp.com/articles)
+[Live Version](https://motorista-web-magazine.herokuapp.com/)
 
 ## Video presentation
 
-[Project Video Presentation](https://www.loom.com/share/1d69732a5fda4577a919fd4e1fc0ac88)
+[Project Video Presentation](https://www.loom.com/share/26a6097046a74a96b2de1b0a7073cb9c)
 
 ## Built With
 
