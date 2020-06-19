@@ -31,3 +31,18 @@
     <% end %>
   </div>
 <% end %>
+
+<% unless current_user %>
+  <%= link_to (user_facebook_omniauth_authorize_path), class: 'facebook-form-link' do %>
+    <div class="form user-form facebook-form">
+      <div>
+        <i class="fa fa-facebook-square"></i><span class="sign_in_facebook">Sign up with Facebook</span>
+      </div>
+      <p class="policies">Feature not available on deployment due to privacy policy.</p>
+    </div>
+  <% end %>
+<% else %>
+  <div class="form user-form facebook-form">
+    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </div>
+<% end %>

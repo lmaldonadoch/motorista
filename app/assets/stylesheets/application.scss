@@ -125,6 +125,12 @@ nav {
     text-decoration: none;
   }
 
+  .footer_links {
+    width: 100%;
+    max-height: 60px;
+    color: $white;
+  }
+
   img {
     width: 50px;
     height: 50px;
@@ -354,6 +360,10 @@ nav {
   box-shadow: 17px 17px 26px -2px rgba(75, 66, 60, 1);
 }
 
+a {
+  color: $brown;
+}
+
 .show_article_image {
   margin: 0 0 30px;
   padding: 0;
@@ -394,6 +404,10 @@ nav {
   }
 }
 
+.user_show_container {
+  padding: 30px;
+}
+
 .destroy_article {
   margin-bottom: 30px;
 }
@@ -430,6 +444,53 @@ nav {
   max-width: 500px;
 }
 
+.facebook-form {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 2rem;
+  color: $brown;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    font-size: 2.5rem;
+    color: #3b5998;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+  }
+
+  span {
+    margin-left: 20px;
+  }
+}
+
+.facebook-form-link:hover {
+  text-decoration: none;
+}
+
+.facebook-form {
+  flex-direction: column;
+
+  .policies {
+    color: $orange;
+    font-size: 0.9rem;
+  }
+
+  .policies:hover {
+    text-decoration: none !important;
+  }
+}
+
+.facebook-form:hover {
+  text-decoration: none;
+
+  i {
+    color: $orange;
+  }
+}
+
 @media (min-width: 768px) {
   .featured_article,
   .empty_category {
@@ -437,10 +498,17 @@ nav {
   }
 
   .footer_links {
+    color: $white;
     max-width: 500px;
     width: 50vw;
     white-space: nowrap;
+
+    a {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
   }
+
   nav {
     .navbar-nav {
       margin: auto;
