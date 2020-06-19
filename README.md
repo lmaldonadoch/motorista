@@ -98,6 +98,14 @@ This should be the results
 - Twitter: [@LuisAngelMCh](https://twitter.com/LuisAngelMCh)
 - Linkedin: [linkedin](https://www.linkedin.com/in/lmaldonadoch)
 
+## Future Upgrades
+
+- Include Google and Twitter authentication.
+- Create an admin account to authorize articles.
+- Enable articles editing.
+- Enable users editing.
+- Add users profile pic.
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
